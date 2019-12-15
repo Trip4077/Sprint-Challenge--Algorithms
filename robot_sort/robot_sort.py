@@ -96,8 +96,53 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Pseudocode
+        
+        # Initiate type writer loop
+        
+        # turn light on to cue sorting if its off
+        # else break loop
+        
+        # while moving right
+        # check if held item is larger, true means swap
+        # move right
+        # if cant move right
+        # check if held item is larger and swap
+
+        # while moving left
+        # check if held item is smaller, true means swap
+        # move left
+        # if cant move left
+        # check if helf item is smaller and swap
+
+        # turn light off 
+
+        while True:
+            if not self.light_is_on():
+
+                self.set_light_on()
+
+                while self.can_move_right():
+
+                    if self.compare_item() == -1  or self.compare_item() == None:
+                        self.swap_item()
+                    self.move_right()
+
+                if self.compare_item() == -1:
+                    self.swap_item()
+                
+                while self.can_move_left():
+
+                    if self.compare_item() == 1:
+                        self.set_light_off()
+                        self.swap_item()
+                    self.move_left()
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_off()
+            else:
+                break
 
 
 if __name__ == "__main__":
